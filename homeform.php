@@ -12,6 +12,16 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
+input[type=password] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
 
 input[type=submit] {
     background-color: #4CAF50;
@@ -35,25 +45,15 @@ input[type=submit]:hover {
 </head>
 <body>
 
-<h3>Contact Form</h3>
+<h3></h3>
 
 <div class="container">
-  <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <form action="#">
+    <label for="uname">username</label>
+    <input type="text" id="uname" name="uname" placeholder=" enter username">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
-
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <label for="password">password</label>
+    <input type="password" id="pwd" name="pwd" placeholder="Yourpassword.">
 
     <input type="submit" value="Submit">
   </form>
