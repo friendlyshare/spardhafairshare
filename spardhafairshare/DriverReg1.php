@@ -1,10 +1,10 @@
-
+<html>
 <body>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>fairshare</title>
+<title>DriverReg1</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -37,15 +37,15 @@ input[type=submit]:hover {
 }
 </style>
 </head>
-<div id="wrapper"> 
-  
+<div id="wrapper">
+
   <div id="header">
     <h1>FAIRSHARE logistics.</h1>
     <p>An online markerplace.</p>
   </div>
 
   <div id="page_content">
-  
+
   <div class="navigation">
   <ul>
   <li><a href="#">Home</a></li>
@@ -59,7 +59,7 @@ input[type=submit]:hover {
 
     <div class="left_section">
     <div class="common_content">
-       
+
     <div class="container">
   <form action="/action_page.php">
    <h3 align="center">DEAR DRIVER!!
@@ -82,51 +82,51 @@ input[type=submit]:hover {
   <label for="password">Password:</label>
     <input type="text" id="dpwd" name="dpwd" placeholder="set a password plz..">
 
-  
-    
+
+
     <input type="submit" value="Submit">
   </form>
 </div>
 
 
       </div>
-      
+
       <div class="top_content border_none">
         <div class="column_one">
-          
+
         <div class="column_two border_left">
-        
+
         </div>
       </div>
     </div>
-    
-    <div class="right_side_bar"> 
-      
+
+    <div class="right_side_bar">
+
       <div class="col_1">
-      
+
         <div class="box">
-         
+
         </div>
       </div>
-      
+
       <div class="col_1">
-       
+
         <div class="box">
-         
-        
+
+
         </div>
       </div>
-      
+
     </div>
-    
+
     <div class="clear"></div>
 
   <!--start footer from here-->
   <div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">HTML Templates</a><br>
-  
+
   <!--DO NOT remove footer link-->
   <!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
-  
+
   <!--/. end footer from here-->
   </div>
 

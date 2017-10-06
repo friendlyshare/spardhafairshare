@@ -2,13 +2,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Template 15</title>
+<title>customerPost</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
-<style>
+<style type="text/css">
+span{
+	color:red;
+}
+h3
+{
+font-family:Trebuchet MS;
+font-size:35px;
+color:red;
+}
+h2
+{
+font-family:Trebuchet MS;
+font-size:20px;
+color:red;
+}
 
-input[type=text], select, textarea {
+
+
+input[type=text], input[type=password] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -18,7 +35,6 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
-
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -27,46 +43,92 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-
 input[type=submit]:hover {
     background-color: #45a049;
 }
-
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
+.navigation ul li{
+	margin:0px;
+	padding:0px 40px;
+	display:inline;
+	font-size:15px;
+	list-style-type:none;
+	border-right:#868B8F dotted 2px;
+}
 </style>
+<!--<script>
+function validateForm()
+{
+	 var x = document.forms["customerpost"]["name"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+        }
+		 var a = document.forms["customerpost"]["src"].value;
+    if (a == "") {
+        alert("age must be filled out");
+        return false;
+        }
+		 var b = document.forms["customerpost"]["dest"].value;
+    if (b == "") {
+        alert("email must be filled out");
+        return false;
+        }
+		 var c = document.forms["customerpost"]["gooddescription"].value;
+    if (c == "") {
+        alert("lisence id must be filled out");
+        return false;
+        }
+		 var d = document.forms["customerpost"]["deliverytime"].value;
+    if (d == "") {
+        alert("Name must be filled out");
+        return false;
+        }
+		 var y= document.forms["customerpost"]["mobile"].value;
+           if(isNaN(y)||y.indexOf(" ")!=-1)
+           {
+              alert("Enter numeric value")
+              return false;
+           }
+
+        return false;
+}
+</script> -->
 </head>
 <body>
 
 <div id="wrapper">
 
   <div id="header">
-    <h1>Enter Site Title</h1>
-    <p>Enter Site Slogan</p>
+    <h3><basefont color="white" >WELCOME TO FAIRSHARE.</h3>
+    <p>An online logistic marketplace</p>
   </div>
 
   <div id="page_content">
 
   <div class="navigation">
-  <ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">New Page 1</a></li>
-  <li><a href="#">New Page 2</a></li>
-  <li><a href="#">New Page 3</a></li>
-  <li><a href="#">New Page 4</a></li>
+ <ul>
+  <li><a href="../index.php">Home</a></li>
+	<li><a href="../customerprofile.php">profile</a></li>
+	<li><a href="../viewagreements.php">My Agreements</a></li>
+		<li><a href="#">Post About your Good </a></li>
+  <li><a href="../customerlogout.php">Logout</a></li>
+
   </ul>
   </div>
 
     <div class="left_section">
     <div class="common_content">
        <div class="container">
-  <form action="../actions/customerPostSubmit.php" method="post" name="customerpost">
-  <h3>customer post</h3>
-    <label for="name">Customer Name:</label>
+  <form action="../actions/customerPostSubmit.php" method="POST" name="customerpost" onsubmit="return validateForm()">
+  <h4><strong>DEAR CUSTOMER..POST HERE ABOUT YOUR GOOD TO BE TRANSPORTED!!</strong></h4>
+
+
+   <label for="name">Customer Name:</label>
     <input type="text" id="name" name="name" placeholder="Your name..">
 
     <label for="src">Pickup Point:</label>
@@ -84,7 +146,10 @@ input[type=submit]:hover {
 
 	<label for="deliverytime">time to reach:</label>
     <input type="text" id="deliverytime" name="deliverytime" placeholder="Enter time that .....">
-    <input type="submit" value="Submit">
+	<span>**All fields are manditory!!please do fill them.</span>
+	<br>
+    <input type="submit"  name="submit" value="Submit">
+
   </form>
 </div>
 

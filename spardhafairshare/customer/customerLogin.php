@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>customerLogin</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -95,7 +95,7 @@ function validateForm()
     <div class="common_content">
         <div class="container">
 		 <div align="center"><strong>DEAR CUSTOMER.. Get Login Here!!</strong></div>
-  <form action="../actions/customeraccess.php" name="customer1" onsubmit="return validateForm() method="post">
+  <form action="../actions/customeraccess.php" name="customer1" onsubmit="return validateForm()" method="post">
     <label for="mobile">mobile Number</label>
     <input type="text" id="mobile" name="mobile" placeholder=" enter mobilenumber">
 

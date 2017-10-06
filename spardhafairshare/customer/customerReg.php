@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>customer signup</title>
+<title>customerReg</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -10,34 +10,34 @@
 <script>
 function validateForm()
 {
-	 var x = document.forms["clientreg"]["cname"].value;
+	 var x = document.forms["clientreg"]["name"].value;
     if (x == "") {
         alert("Name must be filled out");
         return false;
         }
-		 var a = document.forms["clientreg"]["cage"].value;
+		 var a = document.forms["clientreg"]["age"].value;
     if (a == "") {
         alert("age must be filled out");
         return false;
         }
-		 var b = document.forms["clientreg"]["cadhar"].value;
+		 var b = document.forms["clientreg"]["adhar"].value;
     if (b == "") {
         alert("adhar must be filled out");
         return false;
         }
-   var c = document.forms["clientreg"]["cmob"].value;
+   var c = document.forms["clientreg"]["mob"].value;
            if(isNaN(c)||c.indexOf(" ")!=-1)
            {
               alert("Enter numeric value")
               return false;
            }
 
-		 var d = document.forms["clientreg"]["cpwd"].value;
+		 var d = document.forms["clientreg"]["pwd"].value;
     if (d == "") {
         alert("password must be filled out");
         return false;
         }
-		 var y= document.forms["clientreg"]["cmob"].value;
+		 var y= document.forms["clientreg"]["mob"].value;
            if(isNaN(y)||y.indexOf(" ")!=-1)
            {
               alert("Enter numeric value")
@@ -46,7 +46,7 @@ function validateForm()
 
         return false;
 
-		var z= document.forms["clientreg"]["cemail"].value;
+		var z= document.forms["clientreg"]["email"].value;
     var atpos = z.indexOf("@");
     var dotpos = z.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=z.length) {
@@ -56,7 +56,10 @@ function validateForm()
 }
 </script>
 <style>
-input[type=text], select, textarea {
+span{
+	color:red;
+}
+input[type=text], input[type=password] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -84,7 +87,7 @@ input[type=submit]:hover {
 }
 .navigation ul li{
 	margin:0px;
-	padding:0px 100px;
+	padding:0px 200px;
 	display:inline;
 	font-size:15px;
 	list-style-type:none;
@@ -117,7 +120,7 @@ input[type=submit]:hover {
 
    <h4 align="center">DEAR CUSTOMER!!
      GET REGISTER HERE!!</h4>
-  <form name="clientreg" action="../actions/customerRegSubmit.php" onsubmit="return validateForm()" method="post">
+  <form name="clientreg" action="../actions/customerRegSubmit.php" onsubmit="return validateForm()" method="POST">
 
 
 
@@ -129,17 +132,17 @@ input[type=submit]:hover {
     <input type="text" id="age" name="age" placeholder="your age..">
 
 	<label for="email">Email:</label>
-    <input type="text" id="email" name="email" placeholder="yourr mail id..">
+    <input type="text" id="email" name="email" placeholder="your mail id..">
 
-	<label for="adar">Adhar:</label>
+	<label for="adar">Adhar:<span>*</span></label>
     <input type="text" id="adar" name="adar" placeholder="yourr adhar number plz..">
 
-  <label for="mobile">Mobile:</label>
+  <label for="mobile">Mobile:<span>*</span></label>
     <input type="text" id="mobile" name="mobile" placeholder="yourr mobile number.">
 
   <label for="pwd">Password:</label>
     <input type="password" id="pwd" name="pwd" placeholder="set a password plz.">
-	 <input type="submit" value="Submit" onsubmit="">
+	 <input type="submit" value="Submit" >
   </form>
 </div>
       </div>

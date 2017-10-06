@@ -2,16 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Viewagreements</title>
+<title>final</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 h3
 {
 font-family:Trebuchet MS;
 font-size:35px;
-color:red;
+color:arial;
 }
 h2
 {
@@ -51,7 +51,7 @@ input[type=submit]:hover {
 }
 .navigation ul li{
 	margin:0px;
-	padding:0px 100px;
+	padding:0px 80px;
 	display:inline;
 	font-size:15px;
 	list-style-type:none;
@@ -71,67 +71,62 @@ input[type=submit]:hover {
 
   <div class="navigation">
   <ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="logindivider.php">LOGIN</a></li>
-  <li><a href="signupdivider.php">SIGNUP</a></li>
+  <li><a href="../index.php">Home</a></li>
+  <li><a href="driverprofile.php">profile</a></li>
+  <li><a href="driverviewagrement.php">My agrements</a></li>
+  <li><a href="driverlogout.php">logout</a></li>
   </ul>
+
   </div>
 
     <div class="left_section">
     <div class="common_content">
-<?php
-    include "actions/dbcon.php";
-   $rset=mysqli_query($conn,"SELECT * FROM agreement;");
- $rows=mysqli_num_rows($rset);
-
-	echo "<table border='2px' >";
-	 echo " <tr>
-
-   <th> Drivername </th>
-   <th>customername</th>
-   <th>Driver Mobile</th>
-   <th>vehicle Number</th>
-   </tr>";
-
-	  while($row=@mysqli_fetch_assoc($rset)){
-
- echo " <tr>
-   <td>".$row['dname']."</td>
-   <td>".$row['cname']."</td>
-   <td>".$row['dmobile']."</td>
-   <td>".$row['vehicleno']."</td>
-   </tr>";
-	  }
-
-  echo "</table>";
-?>
+<h3><strong>your transaction is done!!!</strong></h3>
+<h2><strong>"YOUR PRODUCT WILL BE DELIVERED SOON."</strong></h2>
+<h4>Thankyou for trusting our fairshare!!</h4>
 </div>
+      </div>
 
-<div class="top_content border_none">
-  <div class="column_one">
+      <div class="top_content border_none">
+        <div class="column_one">
+
+        <div class="column_two border_left">
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="right_side_bar">
+
+      <div class="col_1">
+
+        <div class="box">
+
+        </div>
+      </div>
+
+      <div class="col_1">
+
+        <div class="box">
+
+         <br>
+
+        </div>
+      </div>
 
     </div>
-  <div class="column_two border_left">
 
+    <div class="clear"></div>
+
+  <!--start footer from here-->
+  <div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">fairshare</a><br>
+
+  <!--DO NOT remove footer link-->
+  <!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
+
+  <!--/. end footer from here-->
   </div>
-</div>
-</div>
-
-
-
-
-</div>
-
-<div class="clear"></div>
-
-<!--start footer from here-->
-<div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">fairshare</a><br>
-
-<!--DO NOT remove footer link-->
-<!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
-
-<!--/. end footer from here-->
-</div>
 
 </div>
 

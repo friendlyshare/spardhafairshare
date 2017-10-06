@@ -2,11 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Template 15</title>
+<title>driveraccess</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
-
 <style type="text/css">
 h3
 {
@@ -27,7 +26,7 @@ color:red;
 <style>
 .navigation ul li{
 	margin:0px;
-	padding:0px 200px;
+	padding:0px 40px;
 	display:inline;
 	font-size:15px;
 	list-style-type:none;
@@ -47,7 +46,10 @@ color:red;
   <div class="navigation">
   <ul>
   <li><a href="../index.php">Home</a></li>
-  <li><a href="#">Logout</a></li>
+  <li><a href="../driver/driverviewagrement.php">My Agreements</a></li>
+   <li><a href="../driverprofile.php">Profile</a></li>
+  <li><a href="../driverlogout.php">Logout</a></li>
+
 
   </ul>
   </div>
@@ -63,7 +65,7 @@ color:red;
 				$pwd=$_POST['pwd'];
 				$rset=mysqli_query($conn,"SELECT * from driverreg where mobile='$mobile' and pwd='$pwd'");
 				$rows=mysqli_num_rows($rset);
-				if($rows==0)
+				if($rows == 0)
 				{
 					session_destroy();
 					header('Location:../driver/driverLogin.php?id=0');
@@ -71,51 +73,23 @@ color:red;
 				else
 				{
 					$row=mysqli_fetch_assoc($rset);
+					$_SESSION['name']=$row['name'];
+					$_SESSION['age']=$row['age'];
+					$_SESSION['email']=$row['email'];
 					$_SESSION['mobile']=$row['mobile'];
+					$_SESSION['LisenceId']=$row['LisenceId'];
 					$_SESSION['pwd']=$row['pwd'];
-
-
-
-
-
+				   echo "<h1>welcome:&nbsp;&nbsp;&nbsp;".$_SESSION['name']."</h1>";
 
 				}
 			}
-				else if(!isset($_SESSION['admin_id']))
+				else if(isset($_SESSION['mobile']))
 				{
 					session_destroy();
 					header('Location:../driver/driverLogin.php?id=0');
 
 				}
 			?>
-?>
-</div>
-
-<div class="top_content border_none">
-  <div class="column_one">
-  </div>
-  <div class="column_two border_left">
-
-  </div>
-</div>
-</div>
-
-<div class="right_side_bar">
-
-<div class="col_1">
-
-  <div class="box">
-
-</div>
-
-<div class="col_1">
-
-  <div class="box">
-
-
-  </div>
-</div>
-
 </div>
 
 <div class="clear"></div>
@@ -128,8 +102,10 @@ color:red;
 
 <!--/. end footer from here-->
 </div>
-
 </div>
-
 </body>
+
+
+
+
 </html>

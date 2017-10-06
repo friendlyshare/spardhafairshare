@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Viewagreements</title>
+<title>customerviewagrement</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -20,7 +20,6 @@ font-size:20px;
 color:red;
 }
 </style>
-
 </head>
 <style>
 input[type=text], select, textarea {
@@ -51,7 +50,7 @@ input[type=submit]:hover {
 }
 .navigation ul li{
 	margin:0px;
-	padding:0px 100px;
+	padding:0px 40px;
 	display:inline;
 	font-size:15px;
 	list-style-type:none;
@@ -70,19 +69,30 @@ input[type=submit]:hover {
   <div id="page_content">
 
   <div class="navigation">
-  <ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="logindivider.php">LOGIN</a></li>
-  <li><a href="signupdivider.php">SIGNUP</a></li>
-  </ul>
+ <ul>
+<li><a href="index.php">Home</a></li>
+<li><a href="customerprofile.php">profile</a></li>
+<li><a href="#">My Agreements</a></li>
+  <li><a href="customer/customerPost.php">Post About your Good </a></li>
+<li><a href="customerlogout.php">Logout</a></li>
+
+</ul>
   </div>
 
     <div class="left_section">
     <div class="common_content">
 <?php
+session_start();
+
+    $mobile = $_SESSION['mobile'];
+
     include "actions/dbcon.php";
-   $rset=mysqli_query($conn,"SELECT * FROM agreement;");
- $rows=mysqli_num_rows($rset);
+    echo "Pending Agreements!";
+   $rset = mysqli_query($conn,"SELECT * from agreement where cmobile='$mobile'");
+   if(!$rset){
+     echo "query not executed";
+   }
+   $rows=mysqli_num_rows($rset);
 
 	echo "<table border='2px' >";
 	 echo " <tr>
@@ -91,47 +101,75 @@ input[type=submit]:hover {
    <th>customername</th>
    <th>Driver Mobile</th>
    <th>vehicle Number</th>
-   </tr>";
+   <th>If Accept</th>
 
-	  while($row=@mysqli_fetch_assoc($rset)){
+   </tr>
+   <tr>
+   <th> Deepthi </th>
+   <th>Rangaraju</th>
+   <th>9010652729</th>
+   <th>ap 37 au 1234</th>
+   <td><a href='setstatus.php'>Accept..</a></td>
+
+   </tr>
+
+   ";
+
+	  while($row=mysqli_fetch_assoc($rset)){
 
  echo " <tr>
    <td>".$row['dname']."</td>
    <td>".$row['cname']."</td>
    <td>".$row['dmobile']."</td>
    <td>".$row['vehicleno']."</td>
+   <td><a href='setstatus.php'>Accept..</a></td>
    </tr>";
 	  }
+
 
   echo "</table>";
 ?>
 </div>
 
-<div class="top_content border_none">
-  <div class="column_one">
+      </div>
+
+      <div class="top_content border_none">
+        <div class="column_one">
+         </div>
+        <div class="column_two border_left">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right_side_bar">
+
+
+
+  <div class="col_1">
+        <div class="box">
+
+        </div>
+      </div>
+
+      <div class="col_1">
+
+        <div class="box">
+         </div>
+      </div>
 
     </div>
-  <div class="column_two border_left">
 
+    <div class="clear"></div>
+
+  <!--start footer from here-->
+  <div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">HTML Templates</a><br>
+
+  <!--DO NOT remove footer link-->
+  <!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
+
+  <!--/. end footer from here-->
   </div>
-</div>
-</div>
-
-
-
-
-</div>
-
-<div class="clear"></div>
-
-<!--start footer from here-->
-<div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">fairshare</a><br>
-
-<!--DO NOT remove footer link-->
-<!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
-
-<!--/. end footer from here-->
-</div>
 
 </div>
 

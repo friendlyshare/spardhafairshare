@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>customerPostSubmit</title>
+<title>customeragrementsubmit</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -42,46 +42,56 @@ color:red;
   <div id="page_content">
 
   <div class="navigation">
-		<ul>
-		<li><a href="../index.php">Home</a></li>
-		<li><a href="../customerprofile.php">profile</a></li>
-		<li><a href="../customerviewagrement.php">My Agreements</a></li>
-		  <li><a href="../customer/customerPost.php">Post About your Good </a></li>
-		<li><a href="../customerlogout.php">Logout</a></li>
+   <ul>
+  <li><a href="../index.php">Home</a></li>
+	<li><a href="../customerprofile.php">profile</a></li>
+	<li><a href="../viewagreements.php">My Agreements</a></li>
+		<li><a href="../customer/customerPost.php">Post About your Good </a></li>
+  <li><a href="../customerlogout.php">Logout</a></li>
 
-		</ul>
+
+
+  </ul>
   </div>
 
     <div class="left_section">
     <div class="common_content">
 
-			<?php session_start();
+<?php
+include "../actions/customersession.php";
+include "actions/dbcon.php";
+$rset=mysqli_query($conn,"SELECT * FROM agreement;");
+$rows=mysqli_num_rows($rset);
 
-			?>
+echo "<table border='2px' >";
+echo " <tr>
 
-  <?php
+<th> name </th>
+<th>source point</th>
+<th>Destination</th>
+<th>Good Description</th>
+<th>customer mobilenumber</th>
+<th>Delivery Time</th>
+<th>If accept</th>
 
-  $name= $_POST['name'];
-  $src = $_POST['src'];
-  $dest = $_POST['dest'];
-  $gooddescription = $_POST['gooddescription'];
-  $mobile = $_POST['mobile'];
-  $deliverytime = $_POST['deliverytime'];
+</tr>";
 
+while($row=@mysqli_fetch_assoc($rset)){
 
-include "../actions/dbcon.php";
+echo " <tr>
+$agrement="agrement.php";
+<td>".$row['name']."</td>
+<td>".$row['src']."</td>
+<td>".$row['dest']."</td>
+<td>".$row['GoodDescription']."</td>
+<td>".$row['mobile']."</td>
+<td>".$row['deliverytime']."</td>
 
+</tr>";
+}
+echo "</table>";
+?>
 
-  $sql = "INSERT INTO customerpost (name,src,dest,gooddescription,mobile,deliverytime)
-  VALUES ('$name','$src','$dest','$gooddescription','$mobile','$deliverytime')";
-  if ($conn->query($sql) === TRUE) {
-      echo "your request for delivery is posted successfully";
-  } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-
-  $conn->close();
-  ?>
 
     </div>
 
@@ -118,7 +128,7 @@ include "../actions/dbcon.php";
 <div id="footer">Copyright &copy; 2014. Design by <a href="http://www.htmltemplates.net" target="_blank">HTML Templates</a><br>
 
 <!--DO NOT remove footer link-->
-<!--Template designed by--></div>
+<!--Template designed by--><a href="http://www.htmltemplates.net"><img src="images/footer.gif" class="copyright" alt="http://www.htmltemplates.net"></a></div>
 
 <!--/. end footer from here-->
 </div>

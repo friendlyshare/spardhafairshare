@@ -2,19 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Driver Registration</title>
+<title>driverRegistration</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
 <script>
 function validateForm()
 {
-	 var x = document.forms["driver"]["dname"].value;
+	 var x = document.forms["driver"]["name"].value;
     if (x == "") {
         alert("Name must be filled out");
         return false;
         }
-		 var y= document.forms["driver"]["dmob"].value;
+		 var a = document.forms["driver"]["age"].value;
+    if (a == "") {
+        alert("age must be filled out");
+        return false;
+        }
+		 var b = document.forms["driver"]["email"].value;
+    if (b == "") {
+        alert("email must be filled out");
+        return false;
+        }
+		 var c = document.forms["driver"]["LisenceId"].value;
+    if (c == "") {
+        alert("lisence id must be filled out");
+        return false;
+        }
+		 var d = document.forms["driver"]["pwd"].value;
+    if (d == "") {
+        alert("Name must be filled out");
+        return false;
+        }
+		 var y= document.forms["driver"]["mob"].value;
            if(isNaN(y)||y.indexOf(" ")!=-1)
            {
               alert("Enter numeric value")
@@ -25,6 +45,9 @@ function validateForm()
 }
 </script>
 <style type="text/css">
+span{
+	color:red;
+}
 h3
 {
 font-family:Trebuchet MS;
@@ -109,10 +132,10 @@ input[type=submit]:hover {
 	<label for="email">Email:</label>
     <input type="text" id="email" name="email" placeholder="yourr mail id..">
 
-  <label for="mobile">Mobile:</label>
+  <label for="mobile">Mobile:<span>*</span></label>
     <input type="text" id="mobile" name="mobile" placeholder="your mobile number.">
 
-  <label for="LisenceId">Liscence Id:</label>
+  <label for="LisenceId">Liscence Id:<span>*</span></label>
     <input type="text" id="LisenceId" name="LisenceId" placeholder="yourr liscence Id.">
 
   <label for="pwd">Password:</label>

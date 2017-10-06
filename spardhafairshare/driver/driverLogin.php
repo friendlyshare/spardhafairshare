@@ -2,20 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>driverLogin</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
 <style>
-.navigation ul li{
-	margin:0px;
-	padding:0px 200px;
-	display:inline;
-	font-size:15px;
-	list-style-type:none;
-	border-right:#868B8F dotted 2px;
-}
-input[type=text], select, textarea {
+input[type=text] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -25,7 +17,7 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
-input[type=password] {
+input[type=password]{
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -35,7 +27,6 @@ input[type=password] {
     margin-bottom: 16px;
     resize: vertical;
 }
-
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -44,17 +35,40 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-
 input[type=submit]:hover {
     background-color: #45a049;
 }
-
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
+.navigation ul li{
+	margin:0px;
+	padding:0px 200px;
+	display:inline;
+	font-size:15px;
+	list-style-type:none;
+	border-right:#868B8F dotted 2px;
+
+}
 </style>
+<script>
+function validateForm()
+{
+	 var x = document.forms["driver"]["mobile"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+        }
+
+		 var d = document.forms["driver"]["pwd"].value;
+    if (d == "") {
+        alert("password must be filled out");
+        return false;
+        }
+}
+</script>
 </head>
 <body>
 
@@ -79,19 +93,25 @@ input[type=submit]:hover {
     <div class="common_content">
         <div class="container">
 		 <div align="center"><strong>DEAR DRIVER.. Get Login Here!!</strong></div>
-  <form action="../actions/driveraccess.php" method="post">
-    <label for="name">username</label>
-    <input type="text" id="name" name="name" placeholder=" enter username">
-
-    <label for="pwd">password</label>
-    <input type="pwd" id="pwd" name="pwd" placeholder="Your password.">
-		<?php
+  <form action="../actions/driveraccess.php" method="post" name="driver" onsubmit="return validateForm()">
+    <?php
 				   if(isset($_GET['id']))
 				   {
-					   echo "<font color='red'> <br> Invalid  or  PASSWORD </font>";
+
+					   echo "<font color='red'> <br> Invalid MOBILE or  PASSWORD </font>";
 			           echo "<br />";
-				 }
+
+				 }else if(isset($_GET['id1'])){
+           echo "<font color='red'> <br> Invalid MOBILE or  PASSWORD </font>";
+               echo "<br />";
+         }
 				   ?>
+    <label for="mobile">mobile</label>
+    <input type="text" id="mobile" name="mobile" placeholder=" enter your mobile number">
+
+    <label for="pwd">password</label>
+    <input type="password" id="pwd" name="pwd" placeholder="Your password.">
+
 
    <div align="center"> <input type="submit" value="login"></div>
 </div>

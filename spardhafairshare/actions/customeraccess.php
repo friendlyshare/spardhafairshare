@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Template 15</title>
+<title>customeraccess</title>
 <meta name="description" content="A description of your website">
 <meta name="keywords" content="keyword1, keyword2, keyword3">
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -42,23 +42,23 @@ color:red;
 
   <div id="page_content">
 
-  <div class="navigation">
-  <ul>
-  <li><a href="../index.php">Home</a></li>
-	<li><a href="../index.php">profile</a></li>
-	<li><a href="../index.php">My Agreements</a></li>
-		<li><a href="../index.php">Post About your Good </a></li>
-  <li><a href="#">Logout</a></li>
+		<div class="navigation">
+	<ul>
+	<li><a href="../index.php">Home</a></li>
+	<li><a href="../customerprofile.php">profile</a></li>
+	<li><a href="../customerviewagrement.php">My Agreements</a></li>
+	  <li><a href="../customer/customerPost.php">Post About your Good </a></li>
+	<li><a href="../customerlogout.php">Logout</a></li>
 
-  </ul>
-  </div>
-
+	</ul>
+	</div>
     <div class="left_section">
     <div class="common_content">
 <?php
-session_start();
+	session_start();
 if(isset($_POST['mobile']) && isset($_POST['pwd']))
 {
+
 	include "dbcon.php";
 	$mobile=$_POST['mobile'];
 	$pwd=$_POST['pwd'];
@@ -66,6 +66,7 @@ if(isset($_POST['mobile']) && isset($_POST['pwd']))
 	$rows=mysqli_num_rows($rset);
 	if($rows == 0)
 	{
+
 		session_destroy();
 		header('Location:../customer/customerLogin.php?id=0');
 	}
@@ -73,20 +74,21 @@ if(isset($_POST['mobile']) && isset($_POST['pwd']))
 	{
 		$row=mysqli_fetch_assoc($rset);
 		$_SESSION['name']=$row['name'];
+		echo $_SESSION['name'];
 		$_SESSION['age']=$row['age'];
 		$_SESSION['email']=$row['email'];
 		$_SESSION['adar']=$row['adar'];
 		$_SESSION['mobile']=$row['mobile'];
 		$_SESSION['pwd']=$row['pwd'];
-		echo $_SESSION['name'];
+	   echo "<h1>welcome:&nbsp;&nbsp;&nbsp;".$_SESSION['name']."</h1>";
 
 	}
 }
 	else if(isset($_SESSION['mobile']))
 	{
+		echo "only mobile is set";
 		session_destroy();
-		header('Location:../customer/customerLogin.php?id=0');
-
+	header('Location:../customer/customerLogin.php?id=0');
 	}
 ?>
 </div>
